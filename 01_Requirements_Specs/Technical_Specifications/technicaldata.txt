@@ -1,0 +1,22 @@
+<!DOCTYPE markdown>
+
+# Technische Daten
+
+## Allgemeine Technische Daten
+
+| Eigenschaft | Beschreibung
+| --- | --- 
+| Tastatur & Controller | 10 Programmierbare Digitalregler (Rotary Encoder) <br/> 12 Programmierbare mechanische und austauschbare Tasten (Cherry MX) <br/> 2 Digitalregler und 4 Tasten zur Bedienung des Controllers
+| Display | 128 x 64 OLED Display einfarbig (weiß o. blau)
+| Anschlüsse | 1 x USB-C (USB2.0 kompatibel)
+| Speicher | 64 Profile mit jeweils 88 virtuellen Tasten und Reglern (Controlls). <br/> Die 88 virt. Controlls sind auf 10 physische Regler und 12 physische Tasten in 4 Ebenen verteilt.
+| Stromversorung | 5V, über USB-C
+| Maße (BxTxH) & Gewicht | 254mm x 163mm x 45mm <br/> ca. 700g
+| Lieferumfang (geplant) | Controller, USB-C Kabel, USB-Stick mit Software und Dokumentation
+
+## Interne Daten
+
+| Eigenschaft | Beschreibung
+| --- | --- 
+| Microcontroller | ESP32s3 (Bloototh & WLAN Disabled) + 3 x ATMEGA8 / ATMEGA88
+| PCB | 2-Layer

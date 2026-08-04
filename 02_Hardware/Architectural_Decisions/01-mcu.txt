@@ -1,0 +1,55 @@
+<!DOCTYPE markdown>
+
+## Architektur-Entscheidung MCU
+
+### Problem:
+Das aktuell verwendete MCU modul _ESP32s3 WROOM 1_ besitzt eine WLAN / Bluetooth Antenne und ist damit prinzipiell fähig Radiowellen zu empfangen und zu senden. Damit müsste eventuell eine EMV Prüfung nach Funkrichtlinien erfolgen.
+
+### Ziel
+Das Funkmodul im Esp32s3 wird nicht benötigt und eine Einstufung in die Funkrichtlinie bei der EMV-Prüfung soll aus Kostengründen vermieden werden.
+
+### Lösungsvarianten
+
+|Option| Eingesetzter Chip <br/> Eingesetztes Modul | RF-Eigenschaften | Zusatzmaßnahmen | Umsetzungsaufwand | Anschaffungskosten pro Stk. | Risiko für EMV-Einstufung "Funkrichtlinie" | Auswirkungen | Sonstige Auswirkungen <br/> Technische Eigenschaften
+|-| --- | --- | --- | --- | --- | --- |--- | ---
+|1| ESP32s3 Wroom 1 | technisch voll funkfähig | Abschaltung via. Software | keiner | < 5€ | hoch | was kann passieren? <br> Was ist das Risiko? | Dual-Core, 4MB Flash-ROM, 240MHz, I2C noch nicht Multimaster-fähig, CAN nur über Zusatz-Chip
+|2| ESP32s3 Wroom 1U | funkfähig mit angesteckter Antenne | Abschaltung via. Software und kein Verbau von Antenne | keiner | 5€ - 8€ | mittel | was kann passieren? <br> Was ist das Risiko? | Dual-Core, 4MB Flash-ROM, 240MHz, I2C noch nicht Multimaster-fähig, CAN nur über Zusatz-Chip
+|3| ESP32p4<br>**noch nicht als Modul verfügbar!** | Nicht funkfähig | keine | Änderung Schaltung und PCB | wahrscheinlich 5€ - 8€ | keins || Dual-Core, 4MB Flash-ROM, 240MHz, k.A. zu I2C, CAN nur über Zusatz-Chip
+|4| STM32 | Nicht funkfähig | keine | Groß.<br/>- Einarbeitung in Flashing<br/>- Änderung Schaltung und PCB<br/>- SW-Umbau <br/>- Einmalkosten für zus. Flashtools<br/>- Zeitverlust ca. 6-8 Wochen| 6€ - 12€ | keins| | Single-Core, Max. 2MB Flash-ROM, 180-250MHz, **I2C Multimaster-fähig, ggf. mit CAN Modul.**
+
+### Entscheidung MCU 
+
+**Vorschlag**:
+Akzeptanz der etwas höheren Kosten für den ESP32s3 Wroom 1U (Option2), dafür keine technsiche Änderung in SW und PCB. Plus eventuell spätere Möglichkeit der Nutzung von WLAN oder Bluetooth für Konfigurationszwecke.
+* * *
+30.11.25 : JB
+Generell möchte ich für den Anlauf schnell und effizient zu Testgeräten im Umfang von mind. 10 Stück kommen. Festlegungen sollten wir vermeiden und Design-Änderungen erwarten, Optionen offen halten und flexibel bleiben. 
+
+Dem entsteht der EMV Test "jetzt" entgegen der Festlegungen zum Design für das Testgerät erfordert. 
+**Entscheidung 1: Testgeräte mit EMV**
+Wir wollen einen EMV vor der Versendung von Testgeräten?   Das gehe ich prinzipiell mit. 
+Alternative ist das Versenden von Testgeräten ohne Hersteller-Kennzeichung in sehr kleinem Umfang mit dem Risiko dass diese nich zurück kommen. 
+Das Risiko halte ich aber für überschaubar - aber auch nicht null. 
+
+Wenn wir die Option 2 gehen ist dann aber auch keine Nutzung der Antenne möglich für Geräte die dann schon im Feld sind. Das würde nur neue produzierte Geräte betreffen. Korrekt?
+Für eine Version des SynthHead der den Funk nutzt würden wohl noch andere Design-Modifikationen notwendig - daher ist der spätere Bedarf bei dieser Hardware-Setting den Funk zu nutzen gering - richtig? 
+
+Mein Verständnis: Die EMV (Verträglichkeit des Geräts) ist eine Hersteller - Aussage. Also unsere. Wir sichern uns mit der EMV Prüfung bei zB dem TÜV ab - aber der TÜV zertifiziert nicht die Konformität, sondern holft uns eine bessere eigene Aussage zu treffen. 
+Flashen im Feld ist durch den Einsatz der Schlüssel unwahrscheinlich - also haben wir die Software im Griff. Die schaltet die Antenne ab. Also ist "nur" noch relevant was die Antenne an Störungen durch Empfangen von Außen produziert. Richtig?  Das Frequenzband wird abgefahren - im Test (das ist dabei - so hatte ich Hr. Schwarz verstanden)
+
+Die Stückzahlen werden erstmal klein bleiben. Die anderen Kosten schalgen mehr in's Gewicht.  
+Ich kann gut mit Option 1 und 2 leben. Wenn wir die Wahl haben gehen wir mit ESP32s3 Wroom 1U in den EMV. 
+
+---
+30.11.25: EH
+a) Reputation: den EMV Test vor Versenden der Testgeäre hätte ich gern, ja. Unter anderem, um zu vermeiden, dass wir Geräte verschicken, die in "unbekannten" Umgebungen aufgrund ESD kaputt gehen und uns von vornherein den Ruf ruinieren.
+
+b) Die aktuelle Platine und auch das Gehäuse sind aktuell nicht auf Funkverkehr (Bluetooth oder WLAN) ausgelegt. Daher ist so oder so nochmal eine Überarbeitung nötig, wenn wir das wollen / brauchen. Und: Es wäre dann aus meiner Sicht auch eine neue Überprüfung beim TÜV nötig. Sprich den MC1210F würde ich generell ohne Funkfunktion ausliefern und auch so lassen. Für alles weitere wird es dann ein neues Gerät.
+
+c) Ja, die EMV Aussage treffen wir mit der CE Kennzeichnung. Aufgrund der Störung durch Funk von außen würde ich eigentlich gern auf die Antenne verzichten. Es ist schwer einzuschätzen, was der ESP32 mit Antenne macht, auch wenn die Funktion intern abgeschaltet ist. 
+Unsere SW-Signatur stellt sicher, dass keiner eine andere SW mit unserem Tool flasht als unsere und wir haben es in der Hand.
+_Anmerkung: Generell ist ein Überschreiben unserer SW über die Kontaktpunkte auf der Platine möglich, dann ist es aber auch nicht mehr unser Gerät. Eine Verantwortung würde ich dahingehend eher ausschließen._ **Ist das ein Punkt für die Nutzungsbedingungen?** 
+
+** Okay. Ich ändere die Platine nicht mehr, sondern wir verbauen der ESP32s3 Wroom U1. **
+_P.S: für eigene, interne Modelle können wir auch die Restbestände des Wroom 1 (mint Antenne) verbauen_
+

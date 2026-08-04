@@ -1,0 +1,19 @@
+<!DOCTYPE markdown>
+
+## Modelle / Typen / GTIN
+
+https://www.gs1-germany.de/ean-gtin-barcode/ean-kaufen/?utm_source=google&utm_medium=cpc&utm_campaign=23460349082&utm_term=gtin1&utm_content=792754658071&gad_source=1
+
+
+Wir brauchen GTINs für den Verkauf 
+
+Typen & Varianten für die Anzahl von GTIN's
+
+| #   | Type | Body | Bottom | Top Surface | Stand | Name | Comment |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1   | SH-MC1210F | Black | Grey | White | \- |  | |
+| -   | SH-MC1210F | Black | Grey | Black | \- |  |  *würde ich nicht anbieten* |
+| 2   | SH-MC1210F | Black | Orange | White | Black  |  | *Stand entfernbar* |
+| 3   | SH-MC1210F | Black | Orange | Black | Black | | *Stand entfernbar* |
+| 4   | SH-MC1210F | Black | Blue | Black | Black |  | *Stand entfernbar* |
+

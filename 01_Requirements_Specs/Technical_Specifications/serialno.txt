@@ -1,0 +1,31 @@
+<!DOCTYPE markdown>
+
+
+## Device Identification 
+/ Serial No.
+
+### Serial Number
+
+| Block | Länge (byte) | Beschreibung | Beispiel
+| --- | --- | --- | ---
+| SH- | 3 | Kürzel für SynthHead | SH-
+| CC | 1 | Herstellungsland | 00 .. Deutschland
+| TTTT | 2 | Modelltyp als Hexadezimaldarstellung mit 2byte länge | 0001 .. MC1210F Rev.02
+| YY | 1 | Das Jahr in Hexadezimal kodiert als 1byte. <br> Die Berechnung erfolgt nach Y = <AktuellesJahr> - 2025 | 01
+| 000000 | 3 | Die Seriennummer als 3byte Hex-Ziffer (0.. 16777215)
+
+Gesamtlänge in Byte: 3 + 7 Byte = 10 Byte bzw. 17 ASCII Zeichen
+
+** Beispiel: SH-00000
+101000001 **
+
+### Device ID
+
+Die Device-ID ist im Grundsatz vom Aufbau gleich, wie die Seriennummer.
+
+#### Unterschiede:
+
+- Es fehlt "SH-"
+- Es wird eine 1byte Checksumme ergänzt. 
+
+Gesamtlänge in Byte: 7 Byte + 1 Byte = 8 Byte
