@@ -1,3 +1,0 @@
-===== 02 Hardware =====
-
-{{indexmenu>.##2|js#doku2 navbar context}}

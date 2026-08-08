@@ -1,3 +1,0 @@
-===== 01 Requirements & Specifications =====
-
-{{indexmenu>.##2|js#doku2 navbar context}}

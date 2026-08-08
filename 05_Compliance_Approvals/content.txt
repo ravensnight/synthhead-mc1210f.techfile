@@ -1,2 +1,0 @@
-===== 05 Compliance =====
-{{indexmenu>.##2|js#doku2 navbar context}}
