@@ -1,0 +1,14 @@
+# Process Materials
+
+## Soldering
+
+The following list holds all soldering materials that have been used to create this device.
+
+| Manufacturer | Product Name | MPN | Supplier + Product Link | RoHS | REACH | Attachements |
+|---|---|---|---|---|---|---|
+| Felder | Lötzinn ISO-Core "Clear", 217 degC | 5552940720 | [[https://www.reichelt.de/de/de/shop/produkt/loetzinn_bleifrei_0_75_mm_250_g-141701 | reichelt.de ]] | konform | bleifrei | |
+| Felder | SMD Weichlotpaste ISO-Cream "Clear", 30 g, Korngröße 4, 217 degC | 2385520085984 | [[https://www.reichelt.de/de/de/shop/produkt/smd_weichlotpaste_iso-cream_clear_30_g_korngroesse_4-342915 | reichelt.de ]] | konform |  | |
+| EDSYN | Flussmittel FL22 | 0FL22 | [[https://www.reichelt.de/de/de/shop/produkt/flussmittelgel_flutschi_fl_22_no-clean_5_ml-32673 | reichelt.de ]] | konform |  |  |
+| Inventec/AMTECH | Soldering Paste Sn42/Bi58 35g Syringe | LF-4300 | [[ https://www.mobilesentrix.eu/solder-paste-sn42-bi58-25-45-microns-t3-87-35g-syringe-lf-4300-for-bga-smd-rework-pcb-assembly-amtech | mobilesentrix.eu ]] | konform | | | 
+
+## 3d Printing

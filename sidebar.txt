@@ -1,2 +1,2 @@
 ===== Products | MC1210F =====
-{{indexmenu>.#2}}
+{{indexmenu>.#3}}
