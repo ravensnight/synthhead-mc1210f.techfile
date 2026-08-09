@@ -12,3 +12,4 @@ The following list holds all soldering materials that have been used to create t
 | Inventec/AMTECH | Soldering Paste Sn42/Bi58 35g Syringe | LF-4300 | [[ https://www.mobilesentrix.eu/solder-paste-sn42-bi58-25-45-microns-t3-87-35g-syringe-lf-4300-for-bga-smd-rework-pcb-assembly-amtech | mobilesentrix.eu ]] | konform | | | 
 
 ## 3d Printing
+
