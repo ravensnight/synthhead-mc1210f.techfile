@@ -1,2 +1,2 @@
-===== 07 Project Management =====
-{{indexmenu>.##2|js#doku2 navbar context}}
+# 07. Project Management
+

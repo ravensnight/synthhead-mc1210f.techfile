@@ -1,2 +1,1 @@
-===== 06 Manuals & Marketing =====
-{{indexmenu>.##2|js#doku2 navbar context}}
+# 06. Manuals & Marketing

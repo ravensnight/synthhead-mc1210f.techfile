@@ -1,1 +1,32 @@
 # Bill of Material (BOM)
+
+## Electronics
+
+The boards listed below are part of the MC1210F device. Please find the list of materials serarated for each board.
+
+### MC1210F Mainboard
+<csv intern:products:mc1210f:02_hardware:bom:mc1210f_pcb_main.csv></csv>
+
+### MC1210F Keyboard
+<csv intern:products:mc1210f:02_hardware:bom:mc1210f_pcb_keys.csv></csv>
+
+### Display Board
+
+
+## Mechanics
+
+<csv intern:products:mc1210f:02_hardware:bom:mc1210f_mechanics.csv></csv>
+
+Do not forget:
+- Knobs
+- Head-set Inserts
+- Screws
+
+## Process Materials
+
+<csv intern:products:mc1210f:02_hardware:bom:mc1210f_materials.csv></csv>
+
+Do not forget:
+- Aluminium Foil
+- Filament
+- Soldering material
