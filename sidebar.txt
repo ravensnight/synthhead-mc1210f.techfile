@@ -1,2 +1,11 @@
-===== Products | MC1210F =====
-{{indexmenu>.#3}}
+## Products | MC1210F
+
+<ifauth @admin>
+### Document Status
+~~NOCACHE~~
+{{struct-status>document_status.status}}
+</ifauth>
+
+### Page Content
+{{indexmenu>.#3|notoc}}
+

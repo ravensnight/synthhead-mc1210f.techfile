@@ -1,0 +1,3 @@
+# Test
+
+<jsonview prefix="N-" media="intern:products:mc1210f:02_hardware:bom:test.json"></jsonview>
